@@ -5,7 +5,7 @@ import { User } from '../models/user';
 const isEmailInUse: CustomValidator = value => {
   return User.find({ email: value, isDelete: false, isActive: true }).then(user => {
     if (user.length !== 0) {
-      return Promise.reject('Dni en uso');
+      return Promise.reject('Email en uso');
     }
   });
 }

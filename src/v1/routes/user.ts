@@ -101,9 +101,9 @@ router.post('/signup', [
     .isEmail()
     .withMessage('No válido')
     .custom(isEmailInUse),
-  body('phone')
+  body('username')
     .notEmpty()
-    .withMessage('phone es requerido')
+    .withMessage('username es requerido')
     .bail()
     .isString()
     .withMessage('No válido'),
@@ -142,9 +142,9 @@ router.post('/', auth, authAdmin, [
     .isEmail()
     .withMessage('No válido')
     .custom(isEmailInUse),
-  body('phone')
+  body('username')
     .notEmpty()
-    .withMessage('phone es requerido')
+    .withMessage('username es requerido')
     .bail()
     .isString()
     .withMessage('No válido'),
@@ -222,10 +222,10 @@ router.put('/me', auth, [
     .bail()
     .isString()
     .withMessage('No válido'),
-  body('phone')
-    .if(body('phone').exists())
+  body('username')
+    .if(body('username').exists())
     .notEmpty()
-    .withMessage('phone es requerido')
+    .withMessage('username es requerido')
     .bail()
     .isString()
     .withMessage('No válido')
@@ -264,10 +264,10 @@ router.put('/:id', auth, authAdmin, [
     .isEmail()
     .withMessage('No válido')
     .custom(isEmailInUse),
-  body('phone')
-    .if(body('phone').exists())
+  body('username')
+    .if(body('username').exists())
     .notEmpty()
-    .withMessage('phone es requerido')
+    .withMessage('username es requerido')
     .bail()
     .isString()
     .withMessage('No válido'),

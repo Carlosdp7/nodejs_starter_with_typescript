@@ -32,6 +32,12 @@ router.get('/', auth, authAdmin, getAllUsers);
 
 router.get('/me', auth, getAuthenticatedUser);
 
+router.get('/registered-per-month', auth, authAdmin, getRegisteredUsersPerMonth);
+
+router.get('/weekly-registers-count', auth, authAdmin, getWeeklyRegistersCount);
+
+router.get('/tolal-registered', auth, authAdmin, getAllRegisteredUsers);
+
 router.get('/:id', auth, authAdmin, [
   param('id')
     .notEmpty()
@@ -40,12 +46,6 @@ router.get('/:id', auth, authAdmin, [
     .isMongoId()
     .withMessage('No válido')
 ], validateRequest, getOneUser);
-
-router.get('/registered-per-month', auth, authAdmin, getRegisteredUsersPerMonth);
-
-router.get('/weekly-registers-count', auth, authAdmin, getWeeklyRegistersCount);
-
-router.get('/tolal-registered', auth, authAdmin, getAllRegisteredUsers);
 
 //POST
 router.post('/admin-signin', [
